@@ -1,0 +1,336 @@
+I want you to act as a PlayCanvas game developer, writing all logic using JavaScript code edited in VS Code (external editor).
+Do NOT use PlayCanvas Visual Editor scripting blocks — everything must be built as PlayCanvas JavaScript script files, designed to be edited externally via VS Code.
+
+Your task is to design and implement a complete PlayCanvas game based on the specifications below.
+
+✅ ENGINE + DEVELOPMENT REQUIREMENTS
+✅ MUST-HAVE REQUIREMENTS
+
+The game must be built using the PlayCanvas engine
+
+All game logic must be implemented in JavaScript
+
+Code must be structured for editing outside the PlayCanvas Editor using VS Code
+
+Scripts must be standard PlayCanvas script files (pc.createScript)
+
+You must show:
+
+Which scripts are needed
+
+How scripts attach to entities
+
+Their attribute definitions
+
+How folders/files should be organized locally
+
+How assets are referenced from PlayCanvas
+
+⚠️ Clarification
+I will use PlayCanvas as the engine, but I want to write the code manually in VS Code, then sync/import into PlayCanvas.
+
+→ Your output must reflect this workflow.
+
+✅ ASSET DETAILS (LOCAL)
+
+Images are stored inside:
+
+/images/
+
+✅ Player — “Bearer of Ash”
+
+Folder: images/hero/
+
+Contains 3 frames used for sprite animation
+
+✅ Enemies — Towners
+
+Folder: images/enemy/
+
+Contains 3 frames (same logic as hero)
+
+✅ Altar
+
+Folder: images/altar/
+
+Images: altar_0.png → altar_4.png
+
+0–4 represents number of torches lit
+
+✅ Torches
+
+Folder: images/torch/
+
+Lit/unlit images
+
+✅ Map
+
+File: images/map.jpg
+
+Must be used as static background
+
+🔥 GAME LORE SUMMARY
+
+“Darkness is only the light that burned too long…”
+
+Across ages, Towners guarded the Celestial Candelarium, unaware the original flame was made of living shadow.
+The player — the Bearer of Ash — must reignite the Torches of Ruin, weakening the false light and restoring the shadow flame.
+
+If all torches are lit → victory
+If all torches go out → defeat
+
+Playable locale:
+✅ Tinwood Grove
+
+🎮 CORE GAMEPLAY
+
+Top-down action game:
+
+Player searches and ignites torches
+
+Enemies try to extinguish them
+
+Altar shows how many torches are lit
+
+Enemy strength depends on difficulty
+
+Win if all remain lit
+
+Lose if all go out
+
+✅ REQUIRED GAME SYSTEMS
+MAIN MENU
+
+Title
+
+Buttons:
+
+Easy
+
+Normal
+
+Hard
+
+Credits
+
+Exit
+
+Start Game
+
+Difficulty must be passed to gameplay manager.
+
+UI / HUD
+
+Torches lit / total
+
+Difficulty indicator
+
+Optional timer / HP
+
+PAUSE MENU
+
+Resume
+
+Restart
+
+Return to main
+
+Audio options
+
+DIFFICULTY
+
+Affects:
+
+Enemy speed
+
+Detection range
+
+Spawn rate
+
+Torch-extinguish speed
+
+PLAYER
+
+Sprite (3 frames)
+
+WASD movement
+
+“E” interaction to ignite torch
+
+Collider needed
+
+Script: playerController.js
+
+ENEMY — Towners
+
+Sprite (3 frames)
+
+Seeks lit torches
+
+Attempts to extinguish
+
+Optional: chase player
+
+Script: enemyAI.js
+
+TORCHES OF RUIN
+
+Two states: lit / unlit
+
+Player lights
+
+Enemy extinguishes
+
+Script: torch.js
+
+ALTAR
+
+Shows progress
+
+Sprite updates from 0 → 4 based on torches lit
+
+Triggers victory
+
+Script: altar.js
+
+GAME MANAGER
+
+Difficulty
+
+Global game state
+
+Victory / defeat flow
+
+Enables player + enemies
+
+Tracks torches
+
+Handles UI
+
+Script: gameManager.js
+
+✅ ENTITY LIST
+Menu Scene
+
+UI root
+
+Difficulty buttons
+
+Start button
+
+Credits button
+
+Exit button
+
+Game Scene
+
+Background map (map.jpg)
+
+Player
+
+Torches
+
+Enemies
+
+Altar
+
+GameManager
+
+UI/HUD
+
+✅ WHAT YOU MUST GENERATE
+
+You must output:
+
+✅ 1) Project folder structure (local / VS Code)
+
+Example:
+
+/project
+  /scripts
+    playerController.js
+    enemyAI.js
+    torch.js
+    altar.js
+    gameManager.js
+    uiManager.js
+  /images
+    /hero
+    /enemy
+    /altar
+    /torch
+    map.jpg
+
+✅ 2) Scene hierarchy
+
+(Menu + Game)
+
+✅ 3) Full PlayCanvas JS scripts
+
+All code must:
+
+✅ Use pc.createScript
+✅ Define attributes
+✅ Be attachable to PlayCanvas entities
+
+Provide full source for:
+
+playerController.js
+
+enemyAI.js
+
+torch.js
+
+altar.js
+
+gameManager.js
+
+uiManager.js
+
+Optional: difficulty module
+
+✅ 4) Component + Editor Setup
+
+Explain:
+
+Which components to add (collision, rigidbody, sprite, button)
+
+Which attributes must be assigned
+
+How to bind scripts to entities
+
+✅ 5) Gameplay Flow
+
+Menu → Difficulty → Start → Gameplay → Win/Lose → Return
+
+✅ 6) Additional suggestions
+
+Optional extras such as:
+
+Sound
+
+Music
+
+Particles
+
+Saving progress
+
+✅ RESPONSE FORMAT
+
+Your reply must include:
+
+📁 Folder Structure
+
+🏗 Scene Hierarchy
+
+🧩 Complete Scripts (PlayCanvas JavaScript)
+
+⚙️ Component Setup in Editor
+
+🔄 Game Flow Explanation
+
+✅ Suggestions
+
+If something is missing, make reasonable assumptions.
+
+Produce the full PlayCanvas game implementation based on these requirements — all code must be valid PlayCanvas JavaScript suitable for editing in VS Code.
